@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: 'Todo List RESTFul API'
+  description: "OPEN API for TODO LIST"
+  version: 1.0.0
+  termsOfService: 'https://github.com/reimiii'
+  contact:
+    name: 'Hilmi Akbar Muharrom'
+    email: 'hilmiakbarmuharrom@gmail.com'
+    url: 'https://github.com/reimiii'
+  license:
+    name: 'MIT'
+    url: 'https://opensource.org/license/mit'
+servers:
+  - url: 'https://{env}.me.com/api/v1'
+    description: 'todo list server...'
+    variables:
+      env:
+        description: 'server env'
+        default: 'dev'
+        enum:
+          - 'dev'
+          - 'qa'
+          - 'prod'
+externalDocs:
+  url: 'https://github.com/reimiii'
+  description: 'SOCIAL MEDIA'
+paths:
+
+  /todolist:
+    get:
+      summary: 'get all todolist'
+      description: 'get all active todo by default'
+      responses:
+
+    post:
+      summary: 'create todo'
+      description: 'create single todolist'
+      responses:
+
+  /todolist/{todoListId}:
+    put:
+      summary: 'update todo'
+      description: 'update single todolist'
+      responses:
+
+    delete:
+      summary: 'delete todo'
+      description: 'delete single todolist'
+      responses:
