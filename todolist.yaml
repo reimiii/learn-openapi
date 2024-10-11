@@ -36,16 +36,44 @@ paths:
           required: false
           name: 'include_done'
           description: 'include done todo..'
+          schema:
+            type: boolean
+            nullable: true
+            default: false
 
         - in: query
           required: false
           name: 'name'
           description: 'filter todo.. by name'
+          schema:
+            type: string
+            nullable: true
+            minLength: 1
+            maxLength: 100
       responses:
 
     post:
       summary: 'create todo'
       description: 'create single todolist'
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  required: true
+                priority:
+                  type: integer
+                  format: int32
+                  required: true
+                  default: 1
+
+
       responses:
 
   /todolist/{todoListId}:
@@ -57,7 +85,27 @@ paths:
           required: true
           name: 'todoListId'
           description: 'required for update'
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 100
 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  required: true
+                priority:
+                  type: integer
+                  format: int32
+                  default: 1
+                  required: true
       responses:
 
     delete:
@@ -68,4 +116,15 @@ paths:
           required: true
           name: 'todoListId'
           description: 'required for delete'
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 100
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+
       responses:
