@@ -50,6 +50,13 @@ paths:
             nullable: true
             minLength: 1
             maxLength: 100
+          examples:
+            java:
+              description: 'the java example'
+              value: 'JAVA'
+            kotlin:
+              description: 'the kotlin example'
+              value: 'KOTLIN'
       responses:
 
     post:
@@ -72,6 +79,35 @@ paths:
                   format: int32
                   required: true
                   default: 1
+                tags:
+                  type: array
+                  required: false
+                  minItems: 1
+                  items:
+                    type: "string"
+                    minLength: 1
+            examples:
+              java:
+                description: 'create example todo java'
+                value:
+                  name: 'Java'
+                  priority: 2
+                  tags:
+                    - 'kotlin'
+                    - 'java'
+                    - 'programming'
+              kotlin:
+                description: 'create example todo kotlin'
+                value:
+                  name: 'Kotlin'
+                  priority: 2
+                  tags:
+                    - 'kotlin'
+                    - 'fun'
+                    - 'java'
+                    - 'programming'
+
+
 
 
       responses:
@@ -89,6 +125,13 @@ paths:
             type: string
             minLength: 1
             maxLength: 100
+          examples:
+            java:
+              description: 'for id java'
+              value: '1221'
+            kotlin:
+              description: 'for id kotlin'
+              value: '0011'
 
       requestBody:
         required: true
@@ -106,6 +149,34 @@ paths:
                   format: int32
                   default: 1
                   required: true
+                tags:
+                  type: array
+                  required: false
+                  minItems: 1
+                  items:
+                    type: "string"
+                    minLength: 1
+            examples:
+              java:
+                description: 'create example todo java'
+                value:
+                  name: 'Java'
+                  priority: 2
+                  tags:
+                    - 'kotlin'
+                    - 'java'
+                    - 'programming'
+              kotlin:
+                description: 'create example todo kotlin'
+                value:
+                  name: 'Kotlin'
+                  priority: 2
+                  tags:
+                    - 'kotlin'
+                    - 'fun'
+                    - 'java'
+                    - 'programming'
+
       responses:
 
     delete:
