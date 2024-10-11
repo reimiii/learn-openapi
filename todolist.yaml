@@ -31,6 +31,16 @@ paths:
     get:
       summary: 'get all todolist'
       description: 'get all active todo by default'
+      parameters:
+        - in: query
+          required: false
+          name: 'include_done'
+          description: 'include done todo..'
+
+        - in: query
+          required: false
+          name: 'name'
+          description: 'filter todo.. by name'
       responses:
 
     post:
@@ -42,9 +52,20 @@ paths:
     put:
       summary: 'update todo'
       description: 'update single todolist'
+      parameters:
+        - in: path
+          required: true
+          name: 'todoListId'
+          description: 'required for update'
+
       responses:
 
     delete:
       summary: 'delete todo'
       description: 'delete single todolist'
+      parameters:
+        - in: path
+          required: true
+          name: 'todoListId'
+          description: 'required for delete'
       responses:
